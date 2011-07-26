@@ -1,0 +1,8 @@
+<%# Using raw makes us vulnerable to XSS %>
+<h1><%= raw @post.title %></h1>
+<p><i>By <%= @post.user.try(:username) %></i></p>
+<p><%= raw @post.body %></p>
+<p>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>
+</p>
